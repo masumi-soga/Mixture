@@ -27,10 +27,10 @@
 他の人とコラボがしてみたいとき。
 
 ## 設計書
-ワイヤーフレーム<br>
+ワイヤーフレーム(作成途中)<br>
 https://app.diagrams.net/#G1b78Mg1IX43_Ul3V1AR0lPe5fg9zMV3mw
 
-ER図<br>
+ER図(作成途中)<br>
 https://app.diagrams.net/#G1QohrXMPjtTnwz30w6PxVvCXb-tctfLaV
 
 ## チャレンジ要素一覧
