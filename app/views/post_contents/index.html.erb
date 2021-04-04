@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @post_contents.each do |post_contents| %>
+      <tr>
+        <td><%= post_contents.title %></td>
+        <td><%= post_contents.text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
