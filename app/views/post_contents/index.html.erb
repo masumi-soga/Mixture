@@ -1,16 +1,26 @@
-<table>
-  <thead>
-    <tr>
-      <th>title</th>
-      <th>text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @post_contents.each do |post_contents| %>
+<div class="container">
+  <table>
+    <thead>
       <tr>
-        <td><%= post_contents.title %></td>
-        <td><%= post_contents.text %></td>
+        <th>title</th>
+        <th>text</th>
+        <th>music</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @post_contents.each do |post_content| %>
+        <tr>
+          <td><%= post_content.title %></td>
+          <td><%= post_content.text %></td>
+          <% if post_content.file.present? %>
+          <td>
+            <audio src= "<%= "#{post_content.file}" %>" controls="">
+            <a src="<%= "#{post_content.file}" %>">ダウンロード</a>
+            </audio>
+          </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <h1>プロフィール</h1>
+    <%= attachment_image_tag @user, :profile_image, format: "jpeg", size: "50x50", fallback: "no_image.jpg", class: "profile_image" %>
+    <%= @user.name %>
+    <%= @user.introduction %>
+    <%= link_to "編集", edit_user_path(@user) %>
+  </div>
+</div>
