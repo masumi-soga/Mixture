@@ -1,26 +1,19 @@
 <div class="container">
-  <table>
-    <thead>
-      <tr>
-        <th>title</th>
-        <th>text</th>
-        <th>music</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @post_contents.each do |post_content| %>
-        <tr>
-          <td><%= post_content.title %></td>
-          <td><%= post_content.text %></td>
-          <% if post_content.file.present? %>
-          <td>
-            <audio src= "<%= "#{post_content.file}" %>" controls="">
-            <a src="<%= "#{post_content.file}" %>">ダウンロード</a>
-            </audio>
-          </td>
-          <% end %>
-        </tr>
+  <% @post_contents.each do |post_content| %>
+  <div class="card">
+    <h5 class="card-header"><%= post_content.title %></h5>
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= link_to user_path(post_content.user_id) do %>
+        <%= attachment_image_tag post_content.user, :profile_image, format: "jpeg", size: "50x50", fallback: "no_image.jpg", class: "profile_image" %>
+        <%= post_content.user.name %>
       <% end %>
-    </tbody>
-  </table>
+      <div class="favorite-btn"><%= render "goods/good_btn", post_content: post_content %></div>
+      <div class="comment"><i class="far fa-comment-alt"></i><%= post_content.comments.count %></div>
+    </h5>
+    <p class="card-text"><%= post_content.text %><% if post_content.file.present? %><audio src= "<%= "#{post_content.file}" %>" controls=""><a src="<%= "#{post_content.file}" %>">ダウンロード</a></audio><% end %></p>
+    <%= link_to "詳細", post_content_path(post_content), class: "btn btn-primary" %>
+  </div>
+  </div>
+  <% end %>
 </div>
