@@ -13,6 +13,9 @@
         <audio src= "<%= "#{@post_content.file}" %>" controls="">
           <a src="<%= "#{@post_content.file}" %>">ダウンロード</a>
         </audio>
+        <div class="tags">
+          <%= render "layouts/tag_list", tag_list: @post_content.tag_list %>
+        </div>
         <% end %>
       </p>
       <% if @post_content.user == current_user %>

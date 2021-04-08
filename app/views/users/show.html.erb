@@ -4,6 +4,15 @@
     <%= attachment_image_tag @user, :profile_image, format: "jpeg", size: "50x50", fallback: "no_image.jpg", class: "profile_image" %>
     <%= @user.name %>
     <%= @user.introduction %>
+    <!--フォロー数-->
+    <p>フォロー数：</p><%= @user.followings.count %>
+    <!--フォロワー数-->
+    <p>フォロワー数：</p><%= @user.followers.count %>
+    <% if current_user.following?(@user) %>
+      <%= link_to "フォロー外す", user_follows_path(@user), method: :delete, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "フォローする", user_follows_path(@user), method: :post, class: "btn btn-success" %>
+    <% end %>
     <%= link_to "編集", edit_user_path(@user) %>
   </div>
 </div>

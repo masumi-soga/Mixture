@@ -1,6 +1,7 @@
 class PostContent < ApplicationRecord
   mount_uploader :file, AudiofileUploader
-
+  acts_as_taggable
+  
   has_many :goods
   has_many :comments
   belongs_to :user

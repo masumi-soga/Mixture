@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   root "homes#top"
   get "/about" => "homes#about"
 
-    resources :users
+    resources :users do
+      resource :follows, only: [:create, :destroy]
+      get 'followings' => 'follows#followings', as: 'followings'
+      get 'followers' => 'follows#followers', as: 'followers'
+    end
+
     resources :post_contents do
       resource :goods, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]

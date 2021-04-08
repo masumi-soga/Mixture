@@ -2,6 +2,13 @@ class PostContentsController < ApplicationController
 
   def index
     @post_contents = PostContent.all
+
+    # タグ絞り込み
+    if params[:tag_name]
+      @search_word = params[:tag_name]
+      @post_contents = PostContent.tagged_with("#{params[:tag_name]}")
+    end
+
   end
 
   def show
@@ -40,7 +47,7 @@ class PostContentsController < ApplicationController
   private
 
   def post_content_params
-    params.require(:post_content).permit(:title, :text, :file, :tag)
+    params.require(:post_content).permit(:title, :text, :file, :tag_list)
   end
 
 end
