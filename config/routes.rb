@@ -10,10 +10,18 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
   root "homes#top"
   get "/about" => "homes#about"
 
-    resources :post_contents
-    resources :users
+    resources :users do
+      resource :follows, only: [:create, :destroy]
+      get 'followings' => 'follows#followings', as: 'followings'
+      get 'followers' => 'follows#followers', as: 'followers'
+    end
+
+    resources :post_contents do
+      resource :goods, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+    end
 end

@@ -7,8 +7,6 @@ class CreatePostContents < ActiveRecord::Migration[5.2]
       t.string :music
 
       t.timestamps
-
-      drop_table :post_comments
     end
   end
 end
