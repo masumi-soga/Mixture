@@ -2,6 +2,7 @@ class PostContentsController < ApplicationController
 
   def index
     @post_contents = PostContent.all
+    @tags = ActsAsTaggableOn::Tag.all
 
     # タグ絞り込み
     if params[:tag_name]

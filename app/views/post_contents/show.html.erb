@@ -36,8 +36,7 @@
           </audio>
         <% end %>
         <% if comment.user == current_user %>
-          <%= link_to "編集", edit_post_content_path, class: "btn btn-success" %>
-          <%= link_to "削除", post_content_path, method: :delete, class: "btn btn-danger" %>
+          <%= link_to "削除", post_content_comment_path(comment.post_content,comment), method: :delete, class: "btn btn-danger" %>
       <% end %>
       </div>
     </div>
