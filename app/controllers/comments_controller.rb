@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.user_id = current_user.id
     @comment.post_content_id = @post_content.id
-    binding.pry
     if @comment.save
       redirect_to post_content_path(@post_content)
     else
@@ -14,6 +13,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+		Comment.find_by(id: params[:id], post_content_id: params[:post_content_id]).destroy
+    redirect_to request.referer
   end
 
   private

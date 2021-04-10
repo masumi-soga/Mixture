@@ -2,8 +2,8 @@ class PostContent < ApplicationRecord
   mount_uploader :file, AudiofileUploader
   acts_as_taggable
   
-  has_many :goods
-  has_many :comments
+  has_many :goods, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :user
 
   def gooded_by?(user)

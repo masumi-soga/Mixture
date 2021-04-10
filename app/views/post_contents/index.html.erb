@@ -2,6 +2,7 @@
 
 <div class="container">
   <div class="row">
+    <%= render "layouts/user_info", user: @user %>
     <div class="col-6">
       <% @post_contents.each do |post_content| %>
       <div class="card">
@@ -31,6 +32,7 @@
       </div>
       <% end %>
     </div>
+    <%= render "layouts/sidebar", tag_list: @tags, all_ranks: @all_ranks %>
   </div>
 </div>
 

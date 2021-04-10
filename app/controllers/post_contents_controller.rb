@@ -2,6 +2,8 @@ class PostContentsController < ApplicationController
 
   def index
     @post_contents = PostContent.all
+    @tags = ActsAsTaggableOn::Tag.all
+    @all_ranks = PostContent.find(Good.group(:post_content_id).order('count(post_content_id) desc').limit(5).pluck(:post_content_id))
 
     # タグ絞り込み
     if params[:tag_name]
