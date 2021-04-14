@@ -17,3 +17,45 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+header{
+  border-top: 2px solid #E04361;
+  border-bottom: 2px solid #E04361;
+}
+
+#footer{
+  background-color: black;
+}
+
+.t-align-center{
+  text-align: center;
+  border-bottom: 10px;
+}
+
+.profile_image{
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.user_name::after{
+  content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  margin: 8px auto 0 auto;
+  background-color: #E04361;
+}
+
+.navbar{
+  background-image: image-url("cover_photo.jpg");
+  background-position: center;
+}
+
+body{
+  background-color: #EFECEA;
+}
+
+.card{
+  border: 1px solid #E04361;
+}

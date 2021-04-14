@@ -2,3 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.top-box{
+  width: 100%;
+  height: 800px;
+  background-image: image-url("top.jpg");
+
+}
+
+.top-text{
+  text-align: center;
+  color: #e04361;
+  padding-top:300px;
+}
