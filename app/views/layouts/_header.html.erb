@@ -1,52 +1,42 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="/"><%= image_tag "logo_transparent.jpg", size: "50x50"%></a>
-        <ul class="navbar-nav ml-auto">
-        <!--ログイン後のヘッダー-->
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to post_contents_path do %>
-              <i class="fas fa-store-alt">投稿一覧</i>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <!--リンク先要修正-->
-            <%= link_to user_path(current_user) do %>
-              <i class="fas fa-cookie-bite">マイページ</i>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to new_post_content_path do %>
-              <i class="fas fa-user-plus">投稿</i>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to  destroy_user_session_path,method: :delete do%>
-              <i class="fas fa-user">ログアウト</i>
-            <% end %>
-          </li>
-
-        <!--ログイン前のヘッダー-->
-        <% else %>
-          <li class="nav-item">
-            <%= link_to about_path do %>
-              <i class="fas fa-store-alt">Mixtureについて</i>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to new_user_registration_path do %>
-              <i class="fas fa-user-plus">新規登録</i>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to  new_user_session_path do%>
-              <i class="fas fa-user">ログイン</i>
-            <% end %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
+  <div class="header-box">
+    <div class="header-text">
+      <div class="header-title">MIXTURE</div>
+      <div class="header-subtext">Let's have a session!</div>
     </div>
-  </nav>
+  </div>
+  <div class="navbar-box">
+    <div class="container-fluid">
+      <ul class="navbar list-unstyled">
+      <!--ログイン後のヘッダー-->
+      <% if user_signed_in? %>
+        <li class="nav-item col-3">
+          <%= link_to "Index", post_contents_path, class: "border_spread_btn"%>
+        </li>
+        <li class="nav-item col-3">
+          <%= link_to "My Page", user_path(current_user), class: "border_spread_btn" %>
+        </li>
+        <li class="nav-item col-3">
+          <%= link_to "Post!", new_post_content_path, class: "border_spread_btn" %>
+        </li>
+        <li class="nav-item col-3">
+          <%= link_to  "Log out", destroy_user_session_path,method: :delete, class: "border_spread_btn" %>
+        </li>
+
+      <!--ログイン前のヘッダー-->
+      <% else %>
+        <li class="nav-item col-4">
+          <%= link_to "About", about_path, class: "border_spread_btn" %>
+        </li>
+        <li class="nav-item col-4">
+          <%= link_to "Sign up",new_user_registration_path, class: "border_spread_btn" %>
+        </li>
+        <li class="nav-item col-4">
+          <%= link_to "Log in", new_user_session_path, class: "border_spread_btn" %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="reverse-triangle"></div>
 </header>
