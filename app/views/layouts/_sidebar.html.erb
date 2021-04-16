@@ -1,28 +1,54 @@
-<div class="col-3 mt-3">
-  <div class="card">
+<div class="col-4 mt-3">
+  <div class="card mb-4">
+  <p class="side-card-header">Profile</p>
   <div class="card-body">
-    <h5 class="card-title">タグ</h5>
-    <p class="card-text">
-      <% tag_list.each do |tag| %>
-      <span class="badge badge-primary mr-1 p-2">
+    <h5 class="card-title user_img t-align-center"><%= attachment_image_tag current_user, :profile_image, format: "jpeg", size: "50x50", fallback: "no_image.jpg", class: "profile_image" %></h5>
+    <h6 class="card-subtitle mb-2 user_name t-align-center "><%= current_user.name %></h6>
+    <p class="card-text t-align-center">
+      <div class="t-align-center">投稿数：<%= link_to user_path(user) do %><%= current_user.post_contents.count %> <% end %></div>
+      <div class="t-align-center">フォロー数：<%= user.followings.count %></div>
+      <div class="t-align-center">フォロワー数：<%= user.followers.count %></div>
+    </p>
+    <div class="link t-align-center">
+      <%= link_to user_path(current_user), class: "arrow_btn" do %>
+        <span>Show<i class="fas fa-arrow-circle-right fa-fw"></i></span>
+      <% end %>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="card">
+  <div class="side-card-header">Tags</div>
+  <div class="card-body">
+    <% tag_list.each do |tag| %>
+      <span class="badge badge-mixture mr-1 p-2">
         <%= link_to "#{tag.name}(#{tag.taggings_count})", post_contents_path(tag_name: tag.name),class: "text-white" %>
       </span>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <div class="link t-align-center">
+      <%= link_to user_path(current_user), class: "arrow_btn" do %>
+      <span>All<i class="fas fa-arrow-circle-right fa-fw"></i></span>
       <% end %>
-    </p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    </div>
   </div>
   </div>
 
   <div class="card mt-4">
-  <div class="card-body">
-    <h5 class="card-title">ランキング</h5>
-    <% all_ranks.each.with_index(1) do |post_content, i| %>
-    <p class="card-text"><%= i %>.<%= post_content.title %></p>
-    <% end %>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+    <div class="side-card-header">Ranking</div>
+    <div class="card-body">
+      <table class="ranking-table">
+        <% all_ranks.each.with_index(1) do |post_content, i| %>
+        <tr>
+          <th><%= i %>.</th>
+          <td><%= post_content.title %></td>
+          <td><i class="fas fa-thumbs-up thumbs-green"></i><%= post_content.goods.count %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 
 </div>
