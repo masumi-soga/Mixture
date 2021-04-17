@@ -3,14 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .icons{
-    margin-left: auto;
+  margin-left: auto;
 }
 
 
 .card-title-index{
-    margin-bottom: 0.75rem;
-    display: flex;
-    width: 95%;
-    margin: 0 auto;
-    justify-content: space-between;
+  margin-bottom: 0.75rem;
+  display: flex;
+  width: 95%;
+  margin: 0 auto 10px auto;
+  justify-content: space-between;
+}
+
+.comment-form{
+  border-top: 1px solid #62D4CF;
+  border-bottom: 1px solid #62D4CF;
 }

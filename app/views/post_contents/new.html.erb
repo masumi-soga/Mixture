@@ -1,24 +1,26 @@
 <div class="container">
   <div class="row">
-    <h1>投稿</h1>
-    <%= form_with model: @post_content, local: true do |f| %>
-    <div class="form-group">
-      <%= f.label :title, "タイトル" %>
-      <%= f.text_field :title %>
-    </div>
-    <div class="form-group">
-      <%= f.label :text, "内容" %>
-      <%= f.text_area :text %>
-    </div>
-    <div class="form-group">
-      <%= f.label :file, "音楽ファイル" %>
-      <%= f.file_field :file, :size => 140 %>
-    </div>
-    <div class="form-group">
-      <%= f.label :tag_list, "タグ" %>
-      <%= f.text_field :tag_list, value: @post_content.tag_list.join(','),placeholder: "複数の場合はカンマで区切ってください 例:Mixture,Rock", class: "form-control" %>
-    </div>
-    <%= f.submit "投稿" %>
+    <div class="form col-12 mt-3">
+      <h3>Edit</h3>
+      <%= form_with model: @post_content, local: true do |f| %>
+      <div class="form-group">
+        <p>Title</p>
+        <%= f.text_field :title %>
+      </div>
+      <div class="form-group">
+        <p>Text</p>
+        <%= f.text_area :text %>
+      </div>
+      <div class="form-group">
+        <p>Music File</p>
+        <%= f.file_field :file, :size => 140 %>
+      </div>
+      <div class="form-group">
+        <p>Tags</p>
+        <%= f.text_field :tag_list, value: @post_content.tag_list.join(','),placeholder: "複数の場合はカンマで区切ってください 例:Mixture,Rock", :size => 50 %>
+      </div>
+      <%= f.submit "投稿", class: "btn btn-mixture" %>
     <% end %>
+    </div>
   </div>
 </div>

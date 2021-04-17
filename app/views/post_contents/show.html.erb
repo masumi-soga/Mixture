@@ -1,51 +1,92 @@
-<div class="container">
-  <div class="card">
-    <h5 class="card-header"><%= @post_content.title %></h5>
-    <div class="card-body">
-      <h5 class="card-title">
-        <%= attachment_image_tag @post_content.user, :profile_image, format: "jpeg", size: "50x50", fallback: "no_image.jpg", class: "profile_image" %>
-        <%= @post_content.user.name %>
-        <div class="favorite-btn"><%= render "goods/good_btn", post_content: @post_content %></div>
-      </h5>
-      <p class="card-text">
-        <%= @post_content.text %>
-        <% if @post_content.file.present? %>
-        <audio src= "<%= "#{@post_content.file}" %>" controls="">
-          <a src="<%= "#{@post_content.file}" %>">ダウンロード</a>
-        </audio>
-        <div class="tags">
-          <%= render "layouts/tag_list", tag_list: @post_content.tag_list %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-8 mt-3">
+      <div class="card index-card">
+        <p class="card-header"><strong><%= @post_content.title %></strong></p>
+        <div class="card-body">
+          <div class="row">
+            <div class="card-title-index">
+              <div class="user_info_box">
+              <%= link_to user_path(@post_content.user_id) do %>
+                <%= attachment_image_tag @post_content.user, :profile_image, format: "jpeg", size: "40x40", fallback: "no_image.jpg", class: "profile_image" %>
+                <%= @post_content.user.name %>
+              <% end %>
+              </div>
+              <div class="good-comment-box">
+                <%= render "goods/good_btn", post_content: @post_content %>
+                <i class="far fa-comment-alt"></i><%= @post_content.comments.count %>
+              </div>
+            </div>
+          </div>
+          <p class="card-text">
+            <%= @post_content.text %>
+          </p>
+          <div class="music">
+            <% if @post_content.file.present? %>
+              <audio src= "<%= "#{@post_content.file}" %>" controls="">
+                <a src="<%= "#{@post_content.file}" %>">ダウンロード</a>
+              </audio>
+            <% end %>
+          </div>
+          <div class="tags mb-2">
+            <%= render "layouts/tag_list", tag_list: @post_content.tag_list %>
+          </div>
+          <div class="buttons mb-2">
+            <% if @post_content.user == current_user %>
+              <%= link_to "Edit", edit_post_content_path, class: "btn btn-edit" %>
+              <%= link_to "Delete", post_content_path, method: :delete, class: "btn btn-delete" %>
+            <% end %>
+          </div>
         </div>
-        <% end %>
-      </p>
-      <% if @post_content.user == current_user %>
-        <%= link_to "編集", edit_post_content_path, class: "btn btn-success" %>
-        <%= link_to "削除", post_content_path, method: :delete, class: "btn btn-danger" %>
-      <% end %>
-    </div>
-  </div>
-  <% @post_content.comments.each do |comment| %>
-    <div class="card">
-      <div class="card-body">
-        <%= attachment_image_tag @post_content.user, :profile_image, format: "jpeg", size: "50x50", fallback: "no_image.jpg", class: "profile_image" %>
-        <%= comment.user.name %>
-        <%= comment.comment %>
-        <% if comment.file.present? %>
-          <audio src= "<%= "#{comment.file}" %>" controls="">
+      </div>
+
+      <!--コメント表示-->
+      <% @post_content.comments.each do |comment| %>
+      <div class="card index-card">
+        <div class="card-body">
+          <div class="row">
+            <div class="card-title-index">
+              <div class="user_info_box">
+                <%= link_to user_path(comment.user_id) do %>
+                  <%= attachment_image_tag comment.user, :profile_image, format: "jpeg", size: "40x40", fallback: "no_image.jpg", class: "profile_image" %>
+                  <%= comment.user.name %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <p class="card-text">
+            <%= comment.comment %>
+          </p>
+          <div class="music">
+            <% if comment.file.present? %>
+            <audio src= "<%= "#{comment.file}" %>" controls="">
             <a src="<%= "#{comment.file}" %>">ダウンロード</a>
-          </audio>
-        <% end %>
-        <% if comment.user == current_user %>
-          <%= link_to "削除", post_content_comment_path(comment.post_content,comment), method: :delete, class: "btn btn-danger" %>
+            </audio>
+            <% end %>
+          </div>
+          <div class="buttons mb-2">
+            <% if comment.user == current_user %>
+              <%= link_to "Delete", post_content_comment_path(comment.post_content,comment), method: :delete, class: "btn btn-delete" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
       <% end %>
+      <div class="comment-form p-3 ">
+        <%= form_with model:[@post_content, @comment], local: true do |f| %>
+        <div class="form-group">
+          <p>コメント</p>
+          <%= f.text_area :comment, placeholder: "コメント" %>
+        </div>
+        <div class="form-group">
+          <p>音楽ファイル</p>
+          <%= f.file_field :file, :size => 140 %>
+        </div>
+          <%= f.submit "Send", class:"btn-mixture" %>
+        <% end %>
       </div>
     </div>
-  <% end %>
-  <%= form_with model:[@post_content, @comment], local: true do |f| %>
-    <%= f.label :comment, "コメント" %>
-    <%= f.text_field :comment, placeholder: "コメント" %>
-    <%= f.label :file, "音楽ファイル" %>
-    <%= f.file_field :file, :size => 140 %>
-    <%= f.submit "送信" %>
-  <% end %>
+    <%= render "layouts/sidebar", tag_list: @tags, all_ranks: @all_ranks, user: current_user %>
+  </div>
 </div>
+

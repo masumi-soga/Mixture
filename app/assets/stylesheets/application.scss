@@ -26,6 +26,7 @@
   font-style: normal;
 }
 
+// ヘッダー
 .header-box{
   width: 100%;
   height: 200px;
@@ -64,6 +65,7 @@
   margin: 0 auto;
   }
 
+// ナビゲーション
 
 .navbar{
   margin-bottom: unset;
@@ -77,11 +79,8 @@
   background-color:#62d4cf;
 }
 
-.container-fluid{
-  padding: 0 0 20px 0;
-}
 
-
+// ボタン
 .border_spread_btn {
   position: relative;
   display: inline-block;
@@ -138,6 +137,120 @@
 	transform: translateX(6px);
 }
 
+.btn-mixture{
+  background-color: #62d4cf;
+  color: white;
+  border-radius: 0.25rem;
+  border: 1px solid #62d4cf;
+  font-family: moon;
+}
+
+.btn-delete{
+  color: #ee827c;
+  background-color: #FFF;
+  border-color: #ee827c;
+  font-family: moon;
+}
+
+.btn-edit{
+  color: #47885e;
+  background-color: #FFF;
+  border-color: #47885e;
+  font-family: moon;
+}
+
+.thumbs-green{
+  color: #62d4cf;
+}
+
+.thumbs-gray{
+  color: #CCCCCC;
+}
+
+.badge-mixture{
+  color: #fff;
+  background-color: #62D4CF;
+}
+
+
+// カード
+.card{
+  border-top: 1px solid #62D4CF;
+  border-bottom: 1px solid #62D4CF;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+}
+
+.index-card.card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 1px solid #62D4CF;
+  border-bottom: 0px;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+}
+
+.index-card.card:last-child{
+  border-bottom: 1px solid #62D4CF;
+
+}
+
+// サイドバー
+.side-card-header{
+  text-align: center;
+  padding-top: 20px;
+  font-family: moon;
+  font-size: 20px;
+  margin-bottom:0px;
+  letter-spacing: 2px;
+  color: #62D4CF;
+}
+
+.ranking-table{
+  margin: 0 auto;
+}
+
+// レイアウト
+
+.user_profile{
+  border-top: 1px solid #62D4CF;
+  border-bottom: 1px solid #62D4CF;
+  text-align: center;
+}
+
+.user_profile h3{
+  color: #62d4cf;
+  font-family: moon;
+  letter-spacing: 2px;
+}
+
+.user_profile h4{
+  color: #62d4cf;
+  font-family: moon;
+  letter-spacing: 2px;
+}
+
+
+h4::after{
+  content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  margin: 8px auto 0 auto;
+  background-color: #62D4CF;
+}
+
+.container-fluid{
+  padding: 0 0 20px 0;
+}
 
 .t-align-center{
   text-align: center;
@@ -159,60 +272,22 @@
   background-color: #62D4CF;
 }
 
-.card{
-  border-top: 1px solid #62D4CF;
-  border-bottom: 1px solid #62D4CF;
-  border-left: none;
-  border-right: none;
-  border-radius: 0px;
-}
-
-.index-card.card{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-top: 1px solid #62D4CF;
-  border-bottom: 1px solid #62D4CF;
-  border-left: none;
-  border-right: none;
-  border-radius: 0px;
-}
-
-.index-card.card:nth-last-child(n+2){
-  border-bottom:none;
-}
-
-.side-card-header{
-  text-align: center;
-  padding-top: 20px;
-  font-family: moon;
-  font-size: 20px;
-  margin-bottom:0px;
-  letter-spacing: 2px;
-  color: #62D4CF;
-}
-
-.ranking-table{
+.user_profile{
   margin: 0 auto;
-
 }
 
-.thumbs-green{
-  color: #62d4cf;
+.form{
+  text-align: center;
 }
 
-.thumbs-gray{
-  color: #CCCCCC;
+.form h3{
+    text-align: center;
+    color: #62d4cf;
+    font-family: moon;
 }
 
-.badge-mixture{
-  color: #fff;
-  background-color: #62D4CF;
+.form p{
+    color: #62d4cf;
 }
 
 #footer{
