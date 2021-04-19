@@ -170,6 +170,7 @@
 .badge-mixture{
   color: #fff;
   background-color: #62D4CF;
+  margin-bottom: 5px;
 }
 
 
@@ -196,6 +197,10 @@
   border-left: none;
   border-right: none;
   border-radius: 0px;
+}
+
+.index-card.card:nth-of-type(10n){
+  border-bottom: 1px solid #62D4CF;
 }
 
 .index-card.card:last-child{
@@ -290,6 +295,24 @@ h4::after{
     color: #62d4cf;
 }
 
+
+.pagination {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.page-link{
+  color: #62D4CF;
+}
+
+.page-item.active .page-link{
+  background-color: #62D4CF;
+  color: #FFF;
+  border-color: #62D4CF;
+}
+
 #footer{
-  background-color: #80D8D0;
+  background-color: #62D4CF;
+  color: #FFF;
+  font-family: moon;
 }

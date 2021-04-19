@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post_contents = @user.post_contents
+    @post_contents = @user.post_contents.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def edit

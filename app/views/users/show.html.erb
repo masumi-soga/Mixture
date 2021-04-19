@@ -12,6 +12,7 @@
                 <%= attachment_image_tag post_content.user, :profile_image, format: "jpeg", size: "40x40", fallback: "no_image.jpg", class: "profile_image" %>
                 <%= post_content.user.name %>
               <% end %>
+              <%= post_content.updated_at.strftime("%Y-%m-%d %H:%M") %>
               </div>
               <div class="text-right">
                 <%= render "goods/good_btn", post_content: post_content %>
@@ -55,8 +56,8 @@
         <div class="others">
           <p>投稿数：<%= current_user.post_contents.count %></p>
           <div class="follows">
-            <p>フォロー数：<%= @user.followings.count %></p>
-            <p>フォロワー数：<%= @user.followers.count %></p>
+            <p>フォロー数：<%= link_to user_followings_path(@user) do %><%= @user.followings.count %><% end %></p>
+            <p>フォロワー数：<%= link_to user_followers_path(@user) do %><%= @user.followers.count %><% end %></p>
           </div>
         </div>
         <div class="buttons">
@@ -78,4 +79,5 @@
       </div>
     </div>
   </div>
+  <%= paginate @post_contents %>
 </div>

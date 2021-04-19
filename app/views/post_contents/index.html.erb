@@ -14,6 +14,7 @@
                 <%= attachment_image_tag post_content.user, :profile_image, format: "jpeg", size: "40x40", fallback: "no_image.jpg", class: "profile_image" %>
                 <%= post_content.user.name %>
               <% end %>
+              <%= post_content.updated_at.strftime("%Y-%m-%d %H:%M") %>
               </div>
               <div class="text-right">
                 <%= render "goods/good_btn", post_content: post_content %>
@@ -22,7 +23,7 @@
             </div>
           </div>
           <p class="card-text">
-            <%= post_content.text %>
+            <%= simple_format(h(post_content.text)) %>
           </p>
           <div class="music">
             <% if post_content.file.present? %>
@@ -43,14 +44,16 @@
     </div>
     <%= render "layouts/sidebar", tag_list: @tags, all_ranks: @all_ranks, user: @user %>
   </div>
+  <%= paginate @post_contents %>
 </div>
+
 
 <% else %>
 
 <div class="container mt-4">
   <div class="row">
     <div class="col-8 mt-3">
-      <h4>タグ検索:<%= params[:tag_name] %></h4>
+      <h5>タグ検索:<%= params[:tag_name] %></h5>
       <% @post_contents.each do |post_content| %>
       <div class="card index-card">
         <p class="card-header"><strong><%= post_content.title %></strong></p>
@@ -62,6 +65,7 @@
                 <%= attachment_image_tag post_content.user, :profile_image, format: "jpeg", size: "40x40", fallback: "no_image.jpg", class: "profile_image" %>
                 <%= post_content.user.name %>
               <% end %>
+              <%= post_content.updated_at.strftime("%Y-%m-%d %H:%M") %>
               </div>
               <div class="text-right">
                 <%= render "goods/good_btn", post_content: post_content %>
@@ -70,7 +74,7 @@
             </div>
           </div>
           <p class="card-text">
-            <%= post_content.text %>
+            <%= simple_format(h(post_content.text)) %>
           </p>
           <div class="music">
             <% if post_content.file.present? %>
@@ -91,7 +95,7 @@
     </div>
     <%= render "layouts/sidebar", tag_list: @tags, all_ranks: @all_ranks, user: @user %>
   </div>
+  <%= paginate @post_contents %>
 </div>
 <% end %>
-
 

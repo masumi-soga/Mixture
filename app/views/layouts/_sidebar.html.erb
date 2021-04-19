@@ -6,8 +6,8 @@
     <h6 class="card-subtitle mb-2 user_name t-align-center "><%= current_user.name %></h6>
     <p class="card-text t-align-center">
       <div class="t-align-center">投稿数：<%= link_to user_path(user) do %><%= current_user.post_contents.count %> <% end %></div>
-      <div class="t-align-center">フォロー数：<%= user.followings.count %></div>
-      <div class="t-align-center">フォロワー数：<%= user.followers.count %></div>
+      <div class="t-align-center">フォロー数：<%= link_to user_followings_path(user) do %><%= user.followings.count %><% end %></div>
+      <div class="t-align-center">フォロワー数：<%= link_to user_followers_path(user) do %><%= user.followers.count %><% end %></div>
     </p>
     <div class="link t-align-center">
       <%= link_to user_path(current_user), class: "arrow_btn" do %>
@@ -21,9 +21,9 @@
   <div class="card">
   <div class="side-card-header">Tags</div>
   <div class="card-body">
-    <% tag_list.each do |tag| %>
+    <% tag_list.first(20).each.with_index(1) do |tag| %>
       <% unless tag.taggings_count == 0 %>
-      <span class="badge badge-mixture mr-1 p-2">
+      <span class="tag_lists badge badge-mixture mr-1 p-2">
         <%= link_to "#{tag.name}(#{tag.taggings_count})", post_contents_path(tag_name: tag.name),class: "text-white" %>
       </span>
       <% end %>
@@ -31,7 +31,7 @@
   </div>
   <div class="card-body">
     <div class="link t-align-center">
-      <%= link_to user_path(current_user), class: "arrow_btn" do %>
+      <%= link_to tags_path, class: "arrow_btn" do %>
       <span>All<i class="fas fa-arrow-circle-right fa-fw"></i></span>
       <% end %>
     </div>

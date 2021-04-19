@@ -1,0 +1,22 @@
+<div class="container">
+  <h3 class="head-text my-4">Follows</h3>
+  <table class="follows-table mx-auto">
+    <% @users.each do |following| %>
+      <tbody>
+      <div class="row">
+        <tr>
+          <td><%= attachment_image_tag following, :profile_image, format: "jpeg", size: "40x40", fallback: "no_image.jpg", class: "profile_image" %></td>
+          <td><%= following.name %></td>
+          <td>フォロー数：<%= link_to user_followings_path(following) do %><%= following.followings.count %><% end %></td>
+          <td>フォロワー数：<%= link_to user_followers_path(following) do %><%= following.followers.count %><% end %></td>
+          <td>
+            <%= link_to user_path(following), class: "arrow_btn" do %>
+              <span>Show<i class="fas fa-arrow-circle-right fa-fw"></i></span>
+            <% end %>
+          </td>
+        </tr>
+      </div>
+      </tbody>
+    <% end %>
+  </table>
+</div>
