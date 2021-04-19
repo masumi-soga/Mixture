@@ -20,8 +20,7 @@ class PostContentsController < ApplicationController
     @tags = ActsAsTaggableOn::Tag.all.order(taggings_count: :desc)
     @all_ranks = PostContent.find(Good.group(:post_content_id).order('count(post_content_id) desc').limit(5).pluck(:post_content_id))
     @comment = Comment.new
-
-
+  
   end
 
   def new

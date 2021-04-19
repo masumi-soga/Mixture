@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   get "/about" => "homes#about"
   get 'tags' => 'tag#index', as: 'tags'
 
+  resources :notifications, only: [:index] do
+    collection do
+      delete  'destroy_all'
+    end
+  end
+
     resources :users do
       resource :follows, only: [:create, :destroy]
       get 'followings' => 'follows#followings', as: 'followings'

@@ -5,6 +5,16 @@
     <h5 class="card-title user_img t-align-center"><%= attachment_image_tag current_user, :profile_image, format: "jpeg", size: "50x50", fallback: "no_image.jpg", class: "profile_image" %></h5>
     <h6 class="card-subtitle mb-2 user_name t-align-center "><%= current_user.name %></h6>
     <p class="card-text t-align-center">
+      <div class="t-align-center">
+        <% if user == current_user %>
+          <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle" style="color: #62d4cf;"></i>
+          <% end %>
+          <li>
+              <%= link_to "通知", user_path(current_user), class: "btn-default" %>
+          </li>
+        <% end %>
+      </div>
       <div class="t-align-center">投稿数：<%= link_to user_path(user) do %><%= current_user.post_contents.count %> <% end %></div>
       <div class="t-align-center">フォロー数：<%= link_to user_followings_path(user) do %><%= user.followings.count %><% end %></div>
       <div class="t-align-center">フォロワー数：<%= link_to user_followers_path(user) do %><%= user.followers.count %><% end %></div>

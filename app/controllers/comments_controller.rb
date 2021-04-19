@@ -5,7 +5,9 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.user_id = current_user.id
     @comment.post_content_id = @post_content.id
+    @comment_post_content = @comment.post_content
     if @comment.save
+      @comment_post_content.create_notification_comment!(current_user, @comment.id)
       redirect_to post_content_path(@post_content)
     else
       redirect_to root_path
