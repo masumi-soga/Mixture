@@ -3,6 +3,7 @@
     <div class="form col-12 mt-3">
       <h3>Edit</h3>
       <%= form_with model: @post_content, local: true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-group">
         <p>Title</p>
         <%= f.text_field :title %>

@@ -316,3 +316,14 @@ h4::after{
   color: #FFF;
   font-family: moon;
 }
+
+.alert-warning {
+  color: #ee827c;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.alert-warning ul{
+  display: contents;
+  list-style: none;
+}

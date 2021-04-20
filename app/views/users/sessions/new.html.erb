@@ -1,6 +1,8 @@
 <div class="container">
   <div class="devise-form mt-3 pt-5">
-
+  <% flash.each do |message_type, message| %>
+    <%= content_tag :div, message, class: message_type %>
+  <% end %>
   <h2>Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

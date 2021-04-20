@@ -78,8 +78,8 @@
         </div>
       </div>
       <% if @user == current_user %>
-      <div class="notifications">
-        <h3 class="text-center">通知</h3>
+      <div class="notifications py-3">
+        <h3 class="text-center">Notification</h3>
         <%= link_to destroy_all_notifications_path, method: :delete do %>
             <i class="fas fa-trash" style="color: black;"></i>
             <h7 style="color: black;">全削除</h7>

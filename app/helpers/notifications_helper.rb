@@ -3,17 +3,16 @@ module NotificationsHelper
   def notification_form(notification)
     @visiter = notification.visiter
     @comment = nil
-    your_post_content = link_to 'あなたの投稿', post_content_path(notification), style:"font-weight: bold;"
     @visiter_comment = notification.comment_id
     #notification.actionがfollowかlikeかcommentか
     case notification.action
       when "follow" then
-        tag.a(notification.visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"があなたをフォローしました"
+        tag.a(notification.visiter.name, href:user_path(@visiter))+"があなたをフォローしました"
       when "good" then
-        tag.a(notification.visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_content_path(notification.post_content_id), style:"font-weight: bold;")+"にいいねしました"
+        tag.a(notification.visiter.name, href:user_path(@visiter))+"が"+tag.a('あなたの投稿', href:post_content_path(notification.post_content_id))+"にいいねしました"
       when "comment" then
           @comment = Comment.find_by(id: @visiter_comment)&.comment
-          tag.a(@visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_content_path(notification.post_content_id), style:"font-weight: bold;")+"にコメントしました"
+          tag.a(@visiter.name, href:user_path(@visiter))+"が"+tag.a('あなたの投稿', href:post_content_path(notification.post_content_id))+"にコメントしました"
     end
   end
 

@@ -7,6 +7,9 @@ class PostContent < ApplicationRecord
   has_many :notifications, dependent: :destroy
   belongs_to :user
 
+  validates :title, presence: true, length:{maximum: 30}
+  validates :text, presence: true, length:{maximum: 250}
+
   def gooded_by?(user)
 		goods.where(user_id: user.id).exists?
   end
