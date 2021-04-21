@@ -47,5 +47,9 @@ class PostContent < ApplicationRecord
     end
     notification.save if notification.valid?
   end
+  
+  def self.search(search)
+    search ? where('title LIKE ?', "%#{search}%") : all
+  end
 
 end

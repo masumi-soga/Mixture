@@ -53,7 +53,7 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-8 mt-3">
-      <h5>タグ検索:<%= params[:tag_name] %></h5>
+      <h5>検索:<%= @search_word %></h5>
       <% @post_contents.each do |post_content| %>
       <div class="card index-card">
         <p class="card-header"><strong><%= post_content.title %></strong></p>

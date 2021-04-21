@@ -1,4 +1,10 @@
 <div class="col-4 mt-3">
+  <div class="search-box mb-3">
+    <%= form_tag(post_contents_path, method: :get) do %>
+      <%= text_field_tag :search, "", placeholder: "title" %>
+      <%= submit_tag 'Search', name: nil, class:"btn btn-mixture" %>
+    <% end %>
+  </div>
   <div class="card mb-4">
   <p class="side-card-header">Profile</p>
   <div class="card-body">
