@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!
+before_action :authenticate!
 
+  def authenticate!
+    if admin_signed_in?
+      authenticate_admin!
+    else
+      authenticate_user!
+    end
+  end
+  
   def show
     @user = User.find(params[:id])
     @post_contents = @user.post_contents.page(params[:page]).per(10).order(created_at: :desc)

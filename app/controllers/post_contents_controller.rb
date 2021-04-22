@@ -1,6 +1,14 @@
 class PostContentsController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate!
+
+  def authenticate!
+    if admin_signed_in?
+      authenticate_admin!
+    else
+      authenticate_user!
+    end
+  end
 
   def index
     @post_contents = PostContent.all.page(params[:page]).per(10).order(created_at: :desc)
@@ -60,7 +68,11 @@ class PostContentsController < ApplicationController
   def destroy
     @post_content = PostContent.find(params[:id])
     @post_content.destroy
-    redirect_to post_contents_path
+    if admin_signed_in?
+      redirect_to admins_path
+    else
+      redirect_to post_contents_path
+    end
   end
 
 

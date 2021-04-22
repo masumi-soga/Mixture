@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     end
   end
 
+  scope module: :admins do
+    resources :admins, only: [:index, :show,]
+  end
+
     resources :users do
       resource :follows, only: [:create, :destroy]
       get 'followings' => 'follows#followings', as: 'followings'

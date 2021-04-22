@@ -1,6 +1,14 @@
 class CommentsController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate!
+
+  def authenticate!
+    if admin_signed_in?
+      authenticate_admin!
+    else
+      authenticate_user!
+    end
+  end
 
   def create
     @post_content = PostContent.find(params[:post_content_id])
