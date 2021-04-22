@@ -1,3 +1,14 @@
 // Place all the styles related to the follows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.follows-table{
+  border-collapse: collapse;
+  border-spacing: 5px 5px;
+
+}
+
+.follows-table td{
+  border-bottom: 1px solid #62d4cf;
+  padding:10px 15px;
+}

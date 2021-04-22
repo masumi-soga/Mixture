@@ -1,14 +1,24 @@
 <div class="container">
   <div class="row">
-    <%= form_with model:@user, local: true do |f| %>
-    <%= attachment_image_tag @user, :profile_image, format: "jpeg", size: "50x50", id: "img_prev", fallback: "no_image.jpg" %>
-		<span class="btn btn-file btn-info"><%= f.attachment_field :profile_image %>画像選択</span>
-    <%= f.label :name, "名前" %>
-    <%= f.text_field :name %>
-    <%= f.label :introduction, "紹介文" %>
-    <%= f.text_area :introduction %>
-    <%= f.label :profile_image, "画像" %>
-		<%= f.submit "変更" %>
-		<% end %>
+    <div class="form col-12 mt-3">
+      <h3>Profile Edit</h3>
+      <%= form_with model:@user, remote: true do |f| %>
+      <div class="profile_image_box">
+        <p>Profile image</p>
+        <%= attachment_image_tag @user, :profile_image, style: "height: 70px; width:70px;" ,fallback: 'no_image.jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev'%>
+    		<%= f.file_field :profile_image, class: 'img_field', style: 'display:none;' %>
+        <br>
+      </div>
+      <div class="form-group mt-3">
+        <p>Name</p>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <p>Introduction</p>
+        <%= f.text_area :introduction %>
+      </div>
+  		<%= f.submit "Update", class: "btn btn-mixture" %>
+  		<% end %>
+    </div>
   </div>
 </div>

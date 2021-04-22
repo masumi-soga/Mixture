@@ -1,3 +1,26 @@
 // Place all the styles related to the post_contents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.icons{
+  margin-left: auto;
+}
+
+
+.card-title-index{
+  margin-bottom: 0.75rem;
+  display: flex;
+  width: 95%;
+  margin: 0 auto 10px auto;
+  justify-content: space-between;
+}
+
+.comment-form{
+  border-top: 1px solid #62D4CF;
+  border-bottom: 1px solid #62D4CF;
+}
+
+.comment-form p{
+  color: #62d4cf;
+  font-family: moon;
+}

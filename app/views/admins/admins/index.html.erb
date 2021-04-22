@@ -1,0 +1,97 @@
+<% if @search_word.nil? %>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-8 mt-3">
+      <% @post_contents.each do |post_content| %>
+      <div class="card index-card">
+        <p class="card-header"><strong><%= post_content.title %></strong></p>
+        <div class="card-body">
+          <div class="row">
+            <div class="card-title-index">
+              <div class="pull-left">
+                <%= attachment_image_tag post_content.user, :profile_image, format: "jpeg", size: "40x40", fallback: "no_image.jpg", class: "profile_image" %>
+                <%= post_content.user.name %>
+              <%= post_content.updated_at.strftime("%Y-%m-%d %H:%M") %>
+              </div>
+            </div>
+          </div>
+          <p class="card-text">
+            <%= simple_format(h(post_content.text)) %>
+          </p>
+          <div class="music">
+            <% if post_content.file.present? %>
+              <audio src= "<%= "#{post_content.file}" %>" controls="">
+                <a src="<%= "#{post_content.file}" %>">ダウンロード</a>
+              </audio>
+            <% end %>
+          </div>
+            <div class="tags mb-2">
+              <%= render "layouts/tag_list", tag_list: post_content.tag_list %>
+            </div>
+          <%= link_to admin_path(post_content), class: "arrow_btn" do %>
+            <span>Show<i class="fas fa-arrow-circle-right fa-fw"></i></span>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-4">
+      <h2>administrator</h2>
+      <%= link_to "log out", destroy_admin_session_path, method: :delete, class:"btn btn-mixture" %>
+    </div>
+  </div>
+  <%= paginate @post_contents %>
+</div>
+
+
+<% else %>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-8 mt-3">
+      <h5>検索:<%= @search_word %></h5>
+      <% @post_contents.each do |post_content| %>
+      <div class="card index-card">
+        <p class="card-header"><strong><%= post_content.title %></strong></p>
+        <div class="card-body">
+          <div class="row">
+            <div class="card-title-index">
+              <div class="pull-left">
+              <%= link_to user_path(post_content.user_id) do %>
+                <%= attachment_image_tag post_content.user, :profile_image, format: "jpeg", size: "40x40", fallback: "no_image.jpg", class: "profile_image" %>
+                <%= post_content.user.name %>
+              <% end %>
+              <%= post_content.updated_at.strftime("%Y-%m-%d %H:%M") %>
+              </div>
+            </div>
+          </div>
+          <p class="card-text">
+            <%= simple_format(h(post_content.text)) %>
+          </p>
+          <div class="music">
+            <% if post_content.file.present? %>
+              <audio src= "<%= "#{post_content.file}" %>" controls="">
+                <a src="<%= "#{post_content.file}" %>">ダウンロード</a>
+              </audio>
+            <% end %>
+          </div>
+            <div class="tags mb-2">
+              <%= render "layouts/tag_list", tag_list: post_content.tag_list %>
+            </div>
+          <%= link_to post_content_path(post_content), class: "arrow_btn" do %>
+            <span>Show<i class="fas fa-arrow-circle-right fa-fw"></i></span>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-4">
+      <h2>administrator</h2>
+      <%= link_to "log out", destroy_admin_session_path, method: :delete, class:"btn btn-mixture" %>
+    </div>
+  </div>
+  <%= paginate @post_contents %>
+</div>
+<% end %>
+
