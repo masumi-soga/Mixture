@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tag/index'
   devise_for :admins, controllers: {
     sessions: "admins/sessions",
     passwords: "admins/passwords",
@@ -13,6 +14,17 @@ Rails.application.routes.draw do
 
   root "homes#top"
   get "/about" => "homes#about"
+  get 'tags' => 'tag#index', as: 'tags'
+
+  resources :notifications, only: [:index] do
+    collection do
+      delete  'destroy_all'
+    end
+  end
+
+  scope module: :admins do
+    resources :admins, only: [:index, :show,]
+  end
 
     resources :users do
       resource :follows, only: [:create, :destroy]

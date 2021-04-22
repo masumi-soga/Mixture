@@ -1,19 +1,23 @@
 <div class="container">
   <div class="row">
-    <%= form_with model: @post_content, local: true do |f| %>
-    <div class="form-group">
-      <%= f.label :title, "タイトル" %>
-      <%= f.text_field :title %>
+    <div class="form col-12 mt-3">
+      <h3>Edit</h3>
+      <%= form_with model: @post_content, local: true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class="form-group">
+        <p>Title</p>
+        <%= f.text_field :title %>
+      </div>
+      <div class="form-group">
+        <p>Text</p>
+        <%= f.text_area :text %>
+      </div>
+      <div class="form-group">
+        <p>Music File</p>
+        <%= f.file_field :file, :size => 140 %>
+      </div>
+  		<%= f.submit "Update", class:"btn btn-mixture" %>
+  		<% end %>
     </div>
-    <div class="form-group">
-      <%= f.label :test, "本文" %>
-      <%= f.text_area :text %>
-    </div>
-    <div class="form-group">
-      <%= f.label :file, "音楽ファイル" %>
-      <%= f.file_field :file, :size => 140 %>
-    </div>
-		<%= f.submit "変更" %>
-		<% end %>
   </div>
 </div>

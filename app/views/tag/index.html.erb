@@ -1,0 +1,12 @@
+<div class="container">
+  <h3 class="head-text my-3">Tags</h3>
+  <div class="tag-list">
+  <% @tags.each.with_index(1) do |tag| %>
+      <% unless tag.taggings_count == 0 %>
+      <span class="tag_lists badge badge-mixture mr-1 p-2">
+        <%= link_to "#{tag.name}(#{tag.taggings_count})", post_contents_path(tag_name: tag.name),class: "text-white" %>
+      </span>
+      <% end %>
+    <% end %>
+  </div>
+</div>
