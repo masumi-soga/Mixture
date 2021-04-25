@@ -26,6 +26,13 @@
  - 作曲のためリフやボーカルラインのアイデアをもらいたいとき。
  - 他の人とコラボがしてみたいとき。
 
+##設計書
+ワイヤーフレーム
+https://drive.google.com/file/d/1b78Mg1IX43_Ul3V1AR0lPe5fg9zMV3mw/view?usp=sharing
+
+ER図
+https://drive.google.com/file/d/1QohrXMPjtTnwz30w6PxVvCXb-tctfLaV/view?usp=sharing
+
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/13EYIHjUTESrKjvyPhyLgfEyaVVU-V5aXC9mBzq7548s/edit#gid=0
 
