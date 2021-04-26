@@ -17,7 +17,7 @@
               <%= post_content.updated_at.strftime("%Y-%m-%d %H:%M") %>
               </div>
               <div class="text-right">
-                <%= render "goods/good_btn", post_content: post_content %>
+                <div class="mr-2", id=post_content_<%= post_content.id %> ><%= render "goods/good_btn", post_content: post_content %></div>
                 <i class="far fa-comment-alt"></i><%= post_content.comments.count %>
               </div>
             </div>
