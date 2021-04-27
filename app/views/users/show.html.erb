@@ -78,6 +78,7 @@
         </div>
       </div>
       <% if @user == current_user %>
+      <!--通知欄-->
       <div class="notifications py-3">
         <h3 class="text-center">Notification</h3>
         <%= link_to destroy_all_notifications_path, method: :delete do %>
