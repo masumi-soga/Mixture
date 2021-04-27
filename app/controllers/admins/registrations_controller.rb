@@ -61,7 +61,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_up_path_for(resource)
-    post_contents_path
+    admins_path
   end
 
 end
