@@ -8,35 +8,38 @@
   <div class="navbar-box">
     <div class="container-fluid">
       <ul class="navbar list-unstyled">
+        <% if admin_signed_in? %>
+        <% else %>
       <!--ログイン後のヘッダー-->
-      <% if user_signed_in? %>
-        <li class="nav-item col-2">
-          <%= link_to "About", about_path, class: "border_spread_btn" %>
-        </li>
-        <li class="nav-item col-2">
-          <%= link_to "Index", post_contents_path, class: "border_spread_btn"%>
-        </li>
-        <li class="nav-item col-2">
-          <%= link_to "My Page", user_path(current_user), class: "border_spread_btn" %>
-        </li>
-        <li class="nav-item col-2">
-          <%= link_to "Post", new_post_content_path, class: "border_spread_btn" %>
-        </li>
-        <li class="nav-item col-2">
-          <%= link_to  "Log out", destroy_user_session_path,method: :delete, class: "border_spread_btn" %>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item col-2">
+            <%= link_to "About", about_path, class: "border_spread_btn" %>
+          </li>
+          <li class="nav-item col-2">
+            <%= link_to "Index", post_contents_path, class: "border_spread_btn"%>
+          </li>
+          <li class="nav-item col-2">
+            <%= link_to "My Page", user_path(current_user), class: "border_spread_btn" %>
+          </li>
+          <li class="nav-item col-2">
+            <%= link_to "Post", new_post_content_path, class: "border_spread_btn" %>
+          </li>
+          <li class="nav-item col-2">
+            <%= link_to  "Log out", destroy_user_session_path,method: :delete, class: "border_spread_btn" %>
+          </li>
 
-      <!--ログイン前のヘッダー-->
-      <% else %>
-        <li class="nav-item col-4">
-          <%= link_to "About", about_path, class: "border_spread_btn" %>
-        </li>
-        <li class="nav-item col-4">
-          <%= link_to "Sign up",new_user_registration_path, class: "border_spread_btn" %>
-        </li>
-        <li class="nav-item col-4">
-          <%= link_to "Log in", new_user_session_path, class: "border_spread_btn" %>
-        </li>
+        <!--ログイン前のヘッダー-->
+        <% else %>
+          <li class="nav-item col-4">
+            <%= link_to "About", about_path, class: "border_spread_btn" %>
+          </li>
+          <li class="nav-item col-4">
+            <%= link_to "Sign up",new_user_registration_path, class: "border_spread_btn" %>
+          </li>
+          <li class="nav-item col-4">
+            <%= link_to "Log in", new_user_session_path, class: "border_spread_btn" %>
+          </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
