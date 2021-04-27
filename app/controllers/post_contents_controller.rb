@@ -22,6 +22,7 @@ class PostContentsController < ApplicationController
       @post_contents = PostContent.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10).order(created_at: :desc)
     end
 
+    # タイトル検索時
     if params[:search]
       @search_word = params[:search]
       @post_contents = PostContent.all.search(params[:search]).page(params[:page]).per(10).order(created_at: :desc)
