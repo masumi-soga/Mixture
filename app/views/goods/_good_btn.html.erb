@@ -1,6 +1,6 @@
 <% if post_content.gooded_by?(current_user) %>
-  <%= link_to post_content.goods.count, post_content_goods_path(post_content), method: :delete, class: "fas fa-thumbs-up thumbs-green" %>
+  <%= link_to post_content.goods.count, post_content_goods_path(post_content), method: :delete, class: "fas fa-thumbs-up thumbs-green" , remote: true%>
 <% else %>
-  <%= link_to post_content.goods.count, post_content_goods_path(post_content), method: :post, class: "fas fa-thumbs-up thumbs-gray" %>
+  <%= link_to post_content.goods.count, post_content_goods_path(post_content), method: :post, class: "fas fa-thumbs-up thumbs-gray", remote: true %>
 <% end %>
 
