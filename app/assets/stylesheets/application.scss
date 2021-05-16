@@ -79,6 +79,10 @@
   background-color:#62d4cf;
 }
 
+.navbar-style{
+  padding: 0 0 20px 0;
+}
+
 
 // ボタン
 .border_spread_btn {
@@ -257,10 +261,6 @@ h4::after{
   background-color: #62D4CF;
 }
 
-.container-fluid{
-  padding: 0 0 20px 0;
-}
-
 .t-align-center{
   text-align: center;
   border-bottom: 10px;
@@ -319,6 +319,10 @@ h4::after{
   background-color: #62D4CF;
   color: #FFF;
   font-family: moon;
+}
+
+.footer-box{
+  height: 30px;
 }
 
 .alert-warning {

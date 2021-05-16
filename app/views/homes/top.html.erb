@@ -1,16 +1,18 @@
-<div class="container">
-  <div class="top-box">
-    <div class="home-text mt-3">
-    <h1 class="h1 mb-3">セッションしてみよう！</h1>
-    <p class="home-comment">
-      ギターは弾けるけどドラムは叩けない・・・<br>
-      歌は歌えるけど楽器が弾けない・・・<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="top-box col-12">
+      <div class="home-text mt-3">
+        <h1 class="h1 mb-3">セッションしてみよう！</h1>
+        <p class="home-comment">
+          ギターは弾けるけどドラムは叩けない・・・<br>
+          歌は歌えるけど楽器が弾けない・・・<br>
 
-      そんな人たちのフリーセッションスペース！<br>
+          そんな人たちのフリーセッションスペース！<br>
 
-      今すぐあなたの作品を投稿してみよう！
-    </p>
+          今すぐあなたの作品を投稿してみよう！
+        </p>
+        <%= link_to "Enter", new_user_session_path,class:"btn-flat-double-border mt-2" %>
+      </div>
     </div>
-    <%= link_to "Enter", new_user_session_path,class:"btn-flat-double-border" %>
   </div>
 </div>
