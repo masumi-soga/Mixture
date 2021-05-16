@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="navbar-box">
-    <div class="container-fluid">
+    <div class="container-fluid navbar-style">
       <ul class="navbar list-unstyled">
         <% if admin_signed_in? %>
         <% else %>
@@ -44,5 +44,8 @@
       </ul>
     </div>
   </div>
+  <% if current_page?(controller: 'homes', action: 'top') %>
+  <% else %>
   <div class="reverse-triangle"></div>
+  <% end %>
 </header>
