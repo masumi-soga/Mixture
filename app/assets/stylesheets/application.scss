@@ -56,15 +56,6 @@
   color: #fff;
 }
 
-.reverse-triangle{
-  width: 0;
-  height: 0;
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  border-top: 20px solid #62D5CF;
-  margin: 0 auto;
-  }
-
 // ナビゲーション
 
 .navbar{
@@ -81,6 +72,28 @@
 
 .navbar-style{
   padding: 0 0 20px 0;
+}
+
+.nav-item{
+  position: relative;
+}
+
+.navbar .active:after{
+  position: absolute;
+  z-index:1;
+  content:"";
+  margin: 0 auto;
+  top: 210%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 40px solid transparent;
+  border-left: 40px solid transparent;
+  border-top: 40px solid #62D5CF;
 }
 
 
