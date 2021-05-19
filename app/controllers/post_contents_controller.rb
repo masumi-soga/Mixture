@@ -14,6 +14,7 @@ class PostContentsController < ApplicationController
     @post_contents = PostContent.all.page(params[:page]).per(10).order(created_at: :desc)
     @tags = ActsAsTaggableOn::Tag.all.order(taggings_count: :desc)
     @all_ranks = PostContent.find(Good.group(:post_content_id).order('count(post_content_id) desc').limit(5).pluck(:post_content_id))
+    @comment_ranks = PostContent.find(Comment.group(:post_content_id).order('count(post_content_id) desc').limit(5).pluck(:post_content_id))
     @user = current_user
 
     # タグ絞り込み
@@ -35,6 +36,7 @@ class PostContentsController < ApplicationController
     @post_contents = PostContent.all.order(created_at: :desc)
     @tags = ActsAsTaggableOn::Tag.all.order(taggings_count: :desc)
     @all_ranks = PostContent.find(Good.group(:post_content_id).order('count(post_content_id) desc').limit(5).pluck(:post_content_id))
+    @comment_ranks = PostContent.find(Comment.group(:post_content_id).order('count(post_content_id) desc').limit(5).pluck(:post_content_id))
     @comment = Comment.new
 
   end
