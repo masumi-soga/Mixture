@@ -1,6 +1,9 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-8 mt-3">
+    <%= link_to :back, class: "reverse_arrow_btn mb-3" do %>
+    <span><i class="fas fa-arrow-circle-left fa-fw"></i>Back</span>
+    <% end %>
       <div class="card index-card">
         <p class="card-header"><strong><%= @post_content.title %></strong></p>
         <div class="card-body">
@@ -79,7 +82,7 @@
         <%= render 'layouts/error_messages', model: f.object %>
         <div class="form-group">
           <p>Comment</p>
-          <%= f.text_area :comment, placeholder: "コメント" %>
+          <%= f.text_area :comment, size: "60x10", placeholder: "コメント" %>
         </div>
         <div class="form-group">
           <p>Music File</p>
