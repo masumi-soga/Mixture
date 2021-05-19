@@ -154,6 +154,35 @@
 	transform: translateX(6px);
 }
 
+.reverse_arrow_btn {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	padding: 0.3em;
+	text-align: center;
+	text-decoration: none;
+	color: #62d4cf;
+	background: #fff;
+	border-radius: 30px;
+	border:1px solid #62d4cf;
+	transition: transform ease .3s;
+	font-family: moon;
+}
+.reverse_arrow_btn:hover {
+	 cursor: pointer;
+	 text-decoration: none;
+}
+.reverse_arrow_btn span {
+	display: inline-block;
+	text-decoration: none;
+	transition: transform ease .3s;
+}
+.reverse_arrow_btn:hover span{
+	cursor: pointer;
+	text-decoration: none;
+	transform: translateX(-6px);
+}
+
 .btn-mixture{
   background-color: #62d4cf;
   color: white;
