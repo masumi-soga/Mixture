@@ -49,6 +49,7 @@ class PostContentsController < ApplicationController
     @post_content = PostContent.new(post_content_params)
     @post_content.user_id = current_user.id
     if @post_content.save
+      flash[:notice] = "投稿しました"
       redirect_to post_contents_path
     else
       render 'new'
@@ -62,6 +63,7 @@ class PostContentsController < ApplicationController
   def update
     @post_content = PostContent.find(params[:id])
     if @post_content.update(post_content_params)
+      flash[:notice] = "更新しました"
       redirect_to post_contents_path
     else
       render 'edit'
@@ -71,6 +73,7 @@ class PostContentsController < ApplicationController
   def destroy
     @post_content = PostContent.find(params[:id])
     @post_content.destroy
+    flash[:notice] = "投稿を削除しました"
     if admin_signed_in?
       redirect_to admins_path
     else

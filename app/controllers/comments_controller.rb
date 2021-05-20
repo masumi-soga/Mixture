@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
     @comment.post_content_id = @post_content.id
     @comment_post_content = @comment.post_content
     if @comment.save
+      flash[:notice] = "コメントしました"
       @comment_post_content.create_notification_comment!(current_user, @comment.id)
       redirect_to post_content_path(@post_content)
     else
@@ -30,6 +31,7 @@ class CommentsController < ApplicationController
 
   def destroy
 		Comment.find_by(id: params[:id], post_content_id: params[:post_content_id]).destroy
+		flash[:notice] = "コメントを削除しました"
     redirect_to request.referer
   end
 

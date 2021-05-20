@@ -1,6 +1,13 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-8 mt-3">
+      <div class="flash-message">
+        <% if flash[:notice] %>
+          <p id="notice">
+          <%= flash[:notice] %>
+        </p>
+        <% end %>
+      </div>
       <% @post_contents.each do |post_content| %>
       <div class="card index-card">
         <p class="card-header"><strong><%= post_content.title %></strong></p>

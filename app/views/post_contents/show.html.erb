@@ -4,6 +4,13 @@
     <%= link_to :back, class: "reverse_arrow_btn mb-3" do %>
     <span><i class="fas fa-arrow-circle-left fa-fw"></i>Back</span>
     <% end %>
+    <div class="flash-message">
+      <% if flash[:notice] %>
+        <p id="notice">
+        <%= flash[:notice] %>
+      </p>
+      <% end %>
+    </div>
       <div class="card index-card">
         <p class="card-header"><strong><%= @post_content.title %></strong></p>
         <div class="card-body">
