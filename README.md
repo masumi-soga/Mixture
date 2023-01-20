@@ -2,6 +2,8 @@
 
 ## サイト概要
 <img width="1288" alt="スクリーンショット 2021-04-28 12 38 57" src="https://user-images.githubusercontent.com/76772716/116343106-c9058700-a81e-11eb-9727-a8fb1a770083.png">
+<img width="1288" alt="タイムライン" src="https://user-images.githubusercontent.com/76772716/213657480-6bd32525-7e91-4b03-9d33-cd78ec8de125.png">
+<img width="1288" alt="投稿画面" src="https://user-images.githubusercontent.com/76772716/213657022-6064dd93-8451-4ab4-9a0c-4ae7d92fc716.png">
 
 ギターは弾けるけどドラムは叩けない・・・<br>
 歌は歌えるけど楽器が弾けない・・・<br>
